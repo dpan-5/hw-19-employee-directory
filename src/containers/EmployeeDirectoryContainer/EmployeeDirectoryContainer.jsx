@@ -47,7 +47,10 @@ class EmployeeDirectoryContainer extends Component {
   handleFilterClick = (e) => {
       const { name } = e.target;
       if(name === "filterByName") {
-          console.log("you clicked filter by name");
+          const sortedArray = this.state.filteredResults.sort((a, b) => {
+              return a.name.first > b.name.first ? 1 : -1;
+          });
+          this.setState({filteredResults: sortedArray, isSortedByName: true});
       }
   }
 
@@ -58,9 +61,8 @@ class EmployeeDirectoryContainer extends Component {
         <SearchBar
           search={this.state.search}
           handleInputChange={this.handleInputChange}
-          handleSubmit={this.handleSubmit}
         />
-        <EmployeeDirectory results={this.state.filteredResults}/>
+        <EmployeeDirectory filteredResults={this.state.filteredResults} handleFilterClick={this.handleFilterClick}/>
       </>
     );
   }

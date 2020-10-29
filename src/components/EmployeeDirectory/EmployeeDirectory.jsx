@@ -17,14 +17,14 @@ class EmployeeDirectory extends Component {
                 <thead>
                   <tr>
                     <th>Image</th>
-                    <th onClick={this.props.handleFilterClick} name="filterByName">Name</th>
+                    <th><a onClick={this.props.handleFilterClick} name="filterByName">Name</a></th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>DOB</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {this.props.results.map(employee => (
+                  {this.props.filteredResults.map(employee => (
                     <tr>
                       <td><img alt={`Headshot of ${employee.name.first}`} src={employee.picture.thumbnail} /></td>
                       <td>{employee.name.first} {employee.name.last}</td>
