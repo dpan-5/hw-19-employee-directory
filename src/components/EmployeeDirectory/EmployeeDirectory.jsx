@@ -17,7 +17,7 @@ class EmployeeDirectory extends Component {
                 <thead>
                   <tr>
                     <th>Image</th>
-                    <th>Name</th>
+                    <th onClick={this.props.handleFilterClick} name="filterByName">Name</th>
                     <th>Phone</th>
                     <th>Email</th>
                     <th>DOB</th>

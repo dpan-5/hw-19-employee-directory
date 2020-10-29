@@ -19,14 +19,19 @@ class EmployeeDirectoryContainer extends Component {
       [name]: value,
     });
 
-    const filteredResults = this.state.results.filter(employee => {
-        return (
-            (employee.name.first + " " + employee.name.last).includes(this.state.search)
-            || employee.phone.includes(this.state.search)
-            || employee.email.includes(this.state.search)
-            )
-    });
-    this.setState({filteredResults: filteredResults});
+    // Checck if search is empty or not, then set filteredResult
+    if(this.state.search !== "") {
+        const filteredResults = this.state.results.filter(employee => {
+            return (
+                (employee.name.first + " " + employee.name.last).includes(this.state.search)
+                || employee.phone.includes(this.state.search)
+                || employee.email.includes(this.state.search)
+                )
+        });
+        this.setState({filteredResults: filteredResults});
+    } else {
+        this.setState({filteredResults: this.state.results});
+    }
   };
 
   // EmployeeDirectory functions ===================================================
@@ -37,6 +42,13 @@ class EmployeeDirectoryContainer extends Component {
             this.setState({ results: res.data.results, filteredResults: res.data.results });
         })
         .catch(err => console.log(err));
+  }
+
+  handleFilterClick = (e) => {
+      const { name } = e.target;
+      if(name === "filterByName") {
+          console.log("you clicked filter by name");
+      }
   }
 
   render() {
