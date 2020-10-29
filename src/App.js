@@ -1,13 +1,7 @@
-import Navbar from './components/Navbar/Navbar';
-import SearchBar from './components/SearchBar/SearchBar';
+import EmployeeDirectoryContainer from './containers/EmployeeDirectoryContainer/EmployeeDirectoryContainer'
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <SearchBar />
-    </>
-  );
+  return <EmployeeDirectoryContainer />;
 }
 
 export default App;

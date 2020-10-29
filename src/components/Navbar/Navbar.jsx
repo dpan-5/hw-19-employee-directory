@@ -3,7 +3,7 @@ import React from "react";
 const style = {
     nav: {
         background: "#3d38cf",
-        padding: "2rem"
+        padding: "1.5rem"
   },
     h3: {
         color: "white"
